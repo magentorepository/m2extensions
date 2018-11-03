@@ -2,19 +2,26 @@
 
 namespace Ktpl\Topmenu\Observer;
 
+use Ktpl\Topmenu\Observer\MenuCategoryData;
+use Magento\Catalog\Helper\Category;
+use Magento\Catalog\Model\Indexer\Category\Flat\State;
 use Magento\Framework\Event\ObserverInterface;
 
+/**
+ * Class AddCatalogToTopmenuItemsObserver
+ * @package Ktpl\Topmenu\Observer
+ */
 class AddCatalogToTopmenuItemsObserver implements ObserverInterface
 {
     /**
      * Catalog category
      *
-     * @var \Magento\Catalog\Helper\Category
+     * @var Category
      */
     protected $catalogCategory;
 
     /**
-     * @var \Magento\Catalog\Model\Indexer\Category\Flat\State
+     * @var State
      */
     protected $categoryFlatState;
 
@@ -24,14 +31,15 @@ class AddCatalogToTopmenuItemsObserver implements ObserverInterface
     protected $menuCategoryData;
 
     /**
-     * @param \Magento\Catalog\Helper\Category $catalogCategory
-     * @param \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState
-     * @param \Magento\Catalog\Observer\MenuCategoryData $menuCategoryData
+     * AddCatalogToTopmenuItemsObserver constructor.
+     * @param Category $catalogCategory
+     * @param State $categoryFlatState
+     * @param \Ktpl\Topmenu\Observer\MenuCategoryData $menuCategoryData
      */
     public function __construct(
-        \Magento\Catalog\Helper\Category $catalogCategory,
-        \Magento\Catalog\Model\Indexer\Category\Flat\State $categoryFlatState,
-        \Ktpl\Topmenu\Observer\MenuCategoryData $menuCategoryData
+        Category $catalogCategory,
+        State $categoryFlatState,
+        MenuCategoryData $menuCategoryData
     ) {
         $this->catalogCategory = $catalogCategory;
         $this->categoryFlatState = $categoryFlatState;

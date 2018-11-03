@@ -2,12 +2,17 @@
 
 namespace Ktpl\Topmenu\Observer;
 
+use Magento\Catalog\Helper\Category;
+use Magento\Catalog\Model\CategoryFactory;
+use Magento\Catalog\Model\Layer\Resolver;
+use Magento\Framework\Registry;
+
 class MenuCategoryData
 {
     /**
      * Catalog category
      *
-     * @var \Magento\Catalog\Helper\Category
+     * @var Category
      */
     protected $catalogCategory;
 
@@ -21,27 +26,32 @@ class MenuCategoryData
     /**
      * Catalog layer resolver
      *
-     * @var \Magento\Catalog\Model\Layer\Resolver
+     * @var Resolver
      */
     protected $layerResolver;
 
     /**
-     * @var \Magento\Framework\Registry
+     * @var Registry
      */
     protected $registry;
 
+    /**
+     * @var CategoryFactory
+     */
     protected $categoryFactory;
 
     /**
-     * @param \Magento\Catalog\Helper\Category $catalogCategory
-     * @param \Magento\Catalog\Model\Layer\Resolver $layerResolver
-     * @param \Magento\Framework\Registry $registry
+     * MenuCategoryData constructor.
+     * @param Category $catalogCategory
+     * @param Resolver $layerResolver
+     * @param Registry $registry
+     * @param CategoryFactory $categoryFactory
      */
     public function __construct(
-        \Magento\Catalog\Helper\Category $catalogCategory,
-        \Magento\Catalog\Model\Layer\Resolver $layerResolver,
-        \Magento\Framework\Registry $registry,
-        \Magento\Catalog\Model\CategoryFactory $categoryFactory
+        Category $catalogCategory,
+        Resolver $layerResolver,
+        Registry $registry,
+        CategoryFactory $categoryFactory
     ) {
 
         $this->catalogCategory = $catalogCategory;
