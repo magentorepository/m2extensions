@@ -1,0 +1,22 @@
+{
+  "name": "ktpl/module-topmenu",
+  "description": "Megamenu extension from Ktpl.",
+  "type": "magento2-module",
+  "license": "proprietary",
+  "authors": [
+    {
+      "email": "developer@krishtechnolabs.com",
+      "name": "Krish Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Ktpl\\Topmenu\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

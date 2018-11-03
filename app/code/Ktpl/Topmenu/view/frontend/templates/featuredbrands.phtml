@@ -1,0 +1,15 @@
+<?php
+if (count($featuredBrands = $block->getFeaturedAttributeCollection('color'))):?>
+    <?php $showImage = $block->getDisplayOptionImage(); ?>
+    <div class="topmenu-featured-brands brands-list">
+        <?php foreach ($featuredBrands as $brand): ?>
+            <div class="brand-data">
+                <img src="" alt="<?php echo $brand['label']; ?>">
+                <a href="javascript::void(0)"
+                   title="<?php echo $brand['label']; ?>"><?php echo $brand['label']; ?></a>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <?php return; ?>
+<?php endif; ?>
